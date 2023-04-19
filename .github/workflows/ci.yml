@@ -36,4 +36,4 @@ jobs:
       run: pipenv install -e .
 
     - name: Run pytest
-      run: pipenv run pytest
+      run: pipenv run python -m unittest discover
