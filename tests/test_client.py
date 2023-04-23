@@ -18,6 +18,13 @@ class TestClient(unittest.TestCase):
     def setUpClass(cls):
         cls.translator = Translator
 
+    def test_en_es_translate(self):
+        TEST_QUERY = 'i want you to tell me'
+        EXPECTED_TRANSLATION = 'quiero que me digas'
+        translator = Translator().translate(TEST_QUERY, src='en', dest='es')
+        test_translation = translator.text.lower()
+        self.assertEqual(test_translation, EXPECTED_TRANSLATION)
+
     def test_bind_multiple_service_urls(self):
         service_urls = [
             'translate.google.com',
