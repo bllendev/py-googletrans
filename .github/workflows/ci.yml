@@ -33,7 +33,7 @@ jobs:
         pipenv install --dev --python $(python --version | awk '{print $2}') --skip-lock
 
     - name: Install package in editable mode
-      run: pipenv install -e .
+      run: pipenv install -e . --skip-lock
 
     - name: Run unittest
       run: pipenv run python -m unittest discover
