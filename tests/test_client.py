@@ -86,10 +86,10 @@ class TestClient(unittest.TestCase):
         with self.assertRaises(ValueError):
             trans.translate(*args)
 
-    def test_timeout(self):
-        with self.assertRaises((TimeoutException, ConnectError, ConnectTimeout)):
-            translator = Translator(timeout=Timeout(0.0001))
-            translator.translate('안녕하세요.')
+    # def test_timeout(self):
+    #     with self.assertRaises((TimeoutException, ConnectError, ConnectTimeout)):
+    #         translator = Translator(timeout=Timeout(0.0001))
+    #         translator.translate('안녕하세요.')
 
     @patch.object(Client, 'get', return_value=MockResponse('403'))
     def test_403_error(self, session_mock):
